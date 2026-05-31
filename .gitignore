@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+
+temp_images/
+epub_temp/
+preview.html
+*.epub
+
+.DS_Store
+Thumbs.db

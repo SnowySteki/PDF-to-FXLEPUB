@@ -2,7 +2,9 @@
 
 PDF to FXLEPUB converts image-heavy PDFs or image folders into EPUB3 fixed-layout EPUB files for **Apple Books**.
 
-It is meant for artbooks, manga, comics, manuals, booklets, scanned books, and other books where each page should stay visually fixed. It is not meant for reflowable text EPUBs.
+It is meant for quickly converting lots of manga, picture books, artbooks, comics, manuals, booklets, scanned books, and similar visual PDFs with as little setup and manual editing as possible.
+
+This is not a flexible text/layout converter like some other tools. It does not try to extract real text, rebuild complex layouts, run OCR, create chapters, or produce rich metadata. It treats pages as fixed visual pages because complex PDF layout conversion is difficult to make perfect across many different books.
 
 I made this because Apple Books handles PDFs and EPUBs differently. In Apple Books, page curl animation is available for EPUBs, but not PDFs. I wanted that EPUB reading experience and page curl animation for all of my books in Apple Books, including books that originally came as PDFs.
 
@@ -56,6 +58,8 @@ python pdf_to_fxlepub.py "D:\Books\My Book.pdf"
 
 The final `.epub` is created beside `pdf_to_fxlepub.py`. If a file with the same name already exists, a numbered filename is used instead.
 
+If you want to add chapters, richer metadata, or make other EPUB edits after conversion, use an EPUB editor such as [Sigil](https://sigil-ebook.com/).
+
 ## Preview Features
 
 Before packaging the EPUB, the script opens `preview.html` in your default browser.
@@ -95,6 +99,14 @@ This manual stop is a feature, not a conversion bug. The UX could be improved in
 - **Page order looks wrong:** try switching LTR/RTL, then try **Add Blank 2nd Page**.
 - **EPUB file is large:** fixed-layout image EPUBs are usually large.
 - **MuPDF warnings appear:** some PDFs contain unusual internal objects. If the final EPUB looks correct, the warnings can usually be ignored.
+
+## Acknowledgements
+
+PDF to FXLEPUB is only possible because of open-source projects including:
+
+- [PyMuPDF](https://pymupdf.readthedocs.io/) for reading, rendering, and extracting PDF content.
+- [Pillow](https://python-pillow.org/) for image inspection and validation.
+- [Python](https://www.python.org/) and its standard library for the rest of the workflow.
 
 ## License
 
